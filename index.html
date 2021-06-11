@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="nachashin.github.io/homepage">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nachashin.github.io/homepage</title>
+    <link rel="stylesheet" href="https://andybrewer.github.io/mvp/mvp.css">
+    <style>
+      .menu:hover {cursor:pointer;text-decoration:underline;}
+    </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+    <ul>
+      <li class="menu" id="link1">Section 1</li>
+      <li class="menu" id="link2">Section 2</li>
+      <li class="menu" id="link3">Section 3</li>
+    </ul>
+    </nav>
+    <h1><a href="https://nachashin.github.io/homepage">https://nachashin.github.io/homepage</a></h1>
+  </header>
+
+  <main>
+    <section id="area1">
+      <header>
+        <h2 style="color:#0000FF;">28678</h2>
+        <p>Contents</p>
+      </header>
+      <aside>
+        <h3>Title</h3>
+        <p>Contents</p>
+      </aside>
+      <aside>
+        <h3>Title</h3>
+        <p>Contents</p>
+      </aside>
+      <aside>
+        <h3>Title</h3>
+        <p>Contents</p>
+      </aside>
+    </section>
+
+    <section id="area2">
+      <header>
+        <h2>table,ul,ol,dl tag</h2>
+        <p>Contents</p>
+      </header>
+
+      <aside>
+        <table>
+        <caption>table</caption>
+        <thead>
+          <tr><th>ID</th><th>Name</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>item 1</td></tr>
+          <tr><td>2</td><td>item 2</td></tr>
+          <tr><td>3</td><td>item 3</td></tr>
+        </tbody>
+        </table>
+      </aside>
+
+      <aside>
+        <ul>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+        </ul>
+      </aside>
+
+      <aside>
+        <ol>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+        </ol>
+      </aside>
+
+      <aside>
+        <dl>
+          <dt>word</dt><dd>definition</dd>
+          <dt>word</dt><dd>definition</dd>
+          <dt>word</dt><dd>definition</dd>
+        </dl>
+      </aside>
+    </section>
+    
+    <section id="area3">
+      <header>
+        <h2>form tags</h2>
+      </header>
+
+      <form>
+      <ul>
+        <li>INPUT FORM(text)<input type="text"/></li>
+        <li>INPUT FORM(radio)<input type="radio"/></li>
+        <li>INPUT FORM(checkbox)<input type="checkbox"/></li>
+        <li>SELECT FORM<select><option value="1">select 1</option><option value="2">select 1</option><option value="3">select 3</option></li>
+      </ul>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+$(function() {
+  $('section').hide();
+  $('#area1').show();
+  $('.menu').on('click', function() {
+    tgt = '#area' + $(this).attr('id').replace('link','');
+  $('section').hide();
+    $(tgt).show();
+  });
+});
+  </script>
+</body>
+</html>
+
