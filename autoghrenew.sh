@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ -z "$1" ]; then
-    DESCRIPTION=$RANDOM
+    DESCRIPTION=`date`
 else
     DESCRIPTION="$1"
 fi
