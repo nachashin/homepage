@@ -1,4 +1,4 @@
-#!/usr/share/nginx/.virtualenvs/env3.7/bin/python
+#!/usr/share/nginx/.virtualenvs/env3.6/bin/python
 
 import io, sys, os, json, codecs, random, datetime, cgi
 
