@@ -28,15 +28,15 @@
     <section id="area1">
       <aside>
         <h2>前提</h2>
-        <ol>
+        <ul>
           <li>WindowsにPythonをインストールしてVSCodeで開発する</li>
           <li>開発したコードをGitHub上のリポジトリにpush</li>
           <li>pushされたコードを対象サーバーに自動的にpull</li>
-        </ol>
+        </ul>
       </aside>
       <aside>
         <h3>1.Windows上</h3>
-        <ul>
+        <ol>
           <li><a href="https://gitforwindows.org/" target="_blank">Git for Windowsインストール</a><br>→上記ページのDownload</li>
           <li><a href="https://code.visualstudio.com/Download" target="_blank">VSCodeインストール</a><br>→上記ページのWindows</li>
           <li><a href="https://www.anaconda.com/products/individual" target="_blank">Anacondaインストール</a><br>→上記ページの右下のDownload</li>
@@ -53,19 +53,19 @@
           <li>VSCodeのターミナルを起動して ssh-keygen を実行<br>→作成された ~/.ssh/id_rsa.pub を後ほどGitHubに登録する</li>
           <li>「2.GitHub上」の設定終了後、VSCodeのターミナル上で ssh -T git@github.com を実行</li>
           <li>GitHub上のリポジトリをクローン</li>
-        </ul>
+        </ol>
       </aside>
       <aside>
         <h3>2.GitHub上</h3>
-        <ul>
+        <ol>
           <li>GitHubアカウントを作成してサインイン</li>
           <li>自分のSettings－SSH and GPG keysに上記公開鍵を登録</li>
           <li>リポジトリ作成</li>
-        </ul>
+        </ol>
       </aside>
       <aside>
         <h3>3.EC2上</h3>
-        <ul>
+        <ol>
           <li>インスタンス作成</li>
           <li>nginxインストール</li>
           <li>nginxユーザに切り替わって(# su -s /bin/bash - nginx)、ssh-keygen実行</li>
@@ -74,7 +74,7 @@
           <li></li>
           <li></li>
           <li></li>
-        </ul>
+        </ol>
       </aside>
     </section>
 
