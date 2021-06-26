@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>touch02</title> 
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+  <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script> 
+  <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script> 
+  <style>
+  ul.sortable li{ cursor: move ;}
+  </style>
+</head> 
+<body> 
+<div data-role="page" data-theme="d"> 
+  <div data-role="header">
+    <h1>touch02</h1>
+  </div>
+
+  <div data-role="content"> 
+    <ul data-role="listview" data-inset="true" data-theme="d" data-dividertheme="d" class="sortable"> 
+      <li data-role="list-divider" class="resizable">↓の+のあたりでリサイズ可能</li> 
+      <li>リスト01</li> 
+      <li>リスト02</li> 
+      <li>リスト03</li> 
+      <li>リスト04</li> 
+      <li>リスト05</li> 
+    </ul> 
+  </div> 
+
+  <div data-role="footer" class="ui-bar" id="footer">
+    <div data-role="navbar"> 
+      <ul> 
+        <li><a href="index.html" data-role="button" data-icon="star" rel="external">トップ</a></li> 
+        <li><a href="index.html" data-role="button" data-icon="check" rel="external">トップ</a></li> 
+      </ul> 
+    </div><!-- /navbar --> 
+  </div>
+</div> 
+<script src="http://code.jquery.com/ui/1.8.16/jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.js"></script>
+<script>
+$(function() {
+  $(".sortable").sortable();
+  $(".resizable").resizable();
+});
+</script>
+</body> 
+</html> 
