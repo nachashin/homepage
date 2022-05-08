@@ -74,13 +74,10 @@
         <h3>3.EC2上</h3>
         <ol>
           <li>インスタンス作成</li>
-            <li>セキュリティグループでWebアクセスを可能に設定</li>
-          <li>以下の手順でnginxインストール</li>
-            <ol>
-                <li>sudo amazon-linux-extras install -y nginx1</li>
-                <li>sudo systemctl enable nginx</li>
-                <li>sudo systemctl start nginx</li>
-            </ol>
+          <li>セキュリティグループでWebアクセスを可能に設定
+          <li>以下の手順でnginxインストール</li><pre>$ sudo amazon-linux-extras install -y nginx1
+$ sudo systemctl enable nginx
+$ sudo systemctl start nginx</pre></li>
           <li>nginxユーザに切り替わって ssh-keygen 実行<pre># su -s /bin/bash - nginx
 $ ssh-keygen</pre></li>
           <li>cat .ssh/id_rsa.pub で表示される公開鍵を2.のGitHubアカウントの公開鍵として追加</li>
