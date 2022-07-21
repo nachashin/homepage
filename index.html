@@ -149,7 +149,9 @@ $ ssh-keygen</pre></li>
   <script>
 $(function() {
   $('section').hide();
+  $('#link1').addClass("menu_selected");
   $('#area1').show();
+
   $('.menu').on('click', function() {
     tgt = '#area' + $(this).attr('id').replace('link','');
     $('section').hide();
