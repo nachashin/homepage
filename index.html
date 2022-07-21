@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://andybrewer.github.io/mvp/mvp.css">
     <style>
       .menu:hover {cursor:pointer;text-decoration:underline}
+      .menu_selected {text-decoration:underline;}
       ul.sublist > li {padding-top:0;padding-bottom:0;}
       pre {margin:0;padding:0;background-color:#ECECEC;font-family:"Lucida Sans Unicode";}
     </style>
@@ -151,7 +152,9 @@ $(function() {
   $('#area1').show();
   $('.menu').on('click', function() {
     tgt = '#area' + $(this).attr('id').replace('link','');
-  $('section').hide();
+    $('section').hide();
+    $('.menu').removeClass("menu_selected");
+    $(this).addClass("menu_selected");
     $(tgt).show();
   });
 });
