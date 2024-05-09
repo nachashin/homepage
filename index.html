@@ -30,14 +30,17 @@
       <li class="menu" id="link1">開発環境</li>
       <li class="menu" id="link2">Web Pages</li>
       <li class="menu" id="link3">Rocky 9</li>
-      <li class="menu" id="link4">Webhook</li>
+      <li class="menu" id="link4">Python</li>
+      <li class="menu" id="link5">チートシート</li>
     </ul>
     </nav>
     <h1><a href="https://nachashin.github.io/homepage">便利情報</a></h1>
   </header>
 
   <main>
-    <section id="area1">
+
+      <!-- area1 -->
+      <section id="area1">
       <header>
         <h2>開発環境</h2>
       </header>
@@ -93,7 +96,9 @@ $ ssh-keygen</pre></li>
       </aside>
     </section>
 
-    <section id="area2">
+
+      <!-- area2 -->
+      <section id="area2">
       <header>
         <h2>Web Page Sample</h2>
       </header>
@@ -132,8 +137,10 @@ $ ssh-keygen</pre></li>
         </dl>
       </aside>
     </section>
-    
-    <section id="area3">
+
+      
+      <!-- area3 -->
+      <section id="area3">
       <header>
         <h2>Rocky 9セットアップ手順</h2>
       </header>
@@ -160,13 +167,73 @@ $ ssh-keygen</pre></li>
 //-->
     </section>
 
+
+    <!-- area4 -->
     <section id="area4">
       <header>
-        <h2>Webhook</h2>
+        <h2>Python Tips</h2>
       </header>
+
       <aside>
-        <h3>準備</h3>      
+        <h3>シーケンス</h3>
+        <p>〇複数の要素を順番に並べたデータ型<ul>
+<li>インデックスやスライスで要素にアクセスできる</li>
+<li>for文に添えてループできる</li>
+<li>len()関数で要素数（長さ）を計れる</li>
+<li>+演算子で連結できる</li>
+<li>in演算子で要素の検索ができる</li>
+<li>index()メソッドで要素のインデックスを、count()メソッドで要素の個数を調べられる</li>
+</ul>→<span style="color:red;">リスト、タプル、文字列型</span>などがシーケンス＝並べ替えできるデータ型であること<br>※辞書型、set型は並べ替えられないのでシーケンスではない</p>
       </aside>
+
+      <aside>
+        <h3>map関数</h3>
+        <p>〇１個目の引数に<strong>関数</strong>、２個目の引数に<strong>連続して渡す値</strong>（リストなど）を渡す<pre>
+def <span style="color:red;">func</span>(n):
+    return n, n*n
+
+<span style="color:blue;">nums</span> = [ 10, 20, 30 ]
+for n, ret in map(<span style="color:red;">func</span>, <span style="color:blue;">nums</span>):
+    print(n, ret)</pre>上記の場合以下の値が返る：<br>10 100<br>20 400<br>30 900</p>
+      </aside>
+
+      <aside>
+        <h3>lambda式</h3>
+        <p>〇無名関数を作成する機能<pre>a = 10
+b = 20
+f = (<span style="color:red;">lambda x, y: (x + y) / 2</span>)
+print(f(a,b))</pre>上記の場合fは関数になるためf(a,b)と使用する必要がある<br>・map関数は第一引数に関数が必要なためlambda式と合わせて使用されることが多い／さらに結果を受け取る場合にはリスト化させることも多い<pre>
+a = [10, 20, 30]
+result = <span style="color:red;">list(map(lambda x: x*x, a))</span>
+</pre>上記のresultは[100, 400, 900]のリストになる</p>
+      </aside>
+
+      <aside>
+        <h3>引数keyを指定できる関数★</h3>
+        <p>〇sorted(), sort(), max(), min()などは引数keyに<span style="color:red;">呼び出し可能オブジェクト</span>（＝関数やリストなどのイテラブルオブジェクト等）を指定できる<pre>num = [[98, 79],
+ [95, 27],
+ [69, 86],
+ [21, 53],
+ [48, 84]]
+print(sorted(nums,key=max))</pre>上記の結果は１個目の値を大きい順に並べた結果になる</p>
+      </aside>
+
+      <aside>
+        <h3>内包表記★</h3>
+        <p>〇本来forなどを使って作成する表記をスマートに記述する式<br>〇リスト内包表記：<br>・シーケンスからリストを作成する機能<br>・if文も使える<br>[ 式 for 繰返し変数 in シーケンス ]<br>例１：<pre>[ random.randint(0,101) for a in range(10) ]</pre>例２：<pre>nums = [ 44, 23, 38, 85, 86 ]
+n = [ n for n in nums <span style="color:red;">if n > 50</span> ]</pre><br>〇辞書内包表記：<br>・{}とキーを使う<br>・if文も使える<br>{ <span style="color:red;">キー: 値</span> for 繰返し変数 in シーケンス }</p>
+      </aside>
+
+      <aside>
+        <h3>イテレータ</h3>
+        <p>〇どこまで取り出したかを記憶し、「次を取り出す」処理が可能な機能<br>・</p>
+      </aside>
+
+      <aside>
+        <h3></h3>
+        <p></p>
+      </aside>
+
     </section>
 
   </main>
