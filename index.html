@@ -2,23 +2,16 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>便利情報</title>
+    <title>チートシート</title>
     <meta name="description" content="nachashin.github.io/homepage">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://andybrewer.github.io/mvp/mvp.css">
     <style>
       .menu:hover {cursor:pointer;text-decoration:underline}
       .menu_selected {text-decoration:underline;color:#666666;}
+      h1>a {text-decoration:none;}
       ul.sublist > li {padding-top:0;padding-bottom:0;}
-      pre {
-          margin-left:auto;
-          margin-right:auto;
-          padding:0;
-          text-align:left;
-          white-space:pre-wrap;
-          background-color:#ECECEC;
-          font-family:"Lucida Sans Unicode";
-      }
+      pre {margin:0;padding:0;background-color:#ECECEC;font-family:"Lucida Sans Unicode", Arial;}
     </style>
 </head>
 
@@ -30,16 +23,16 @@
       <li class="menu" id="link2">Web Pages</li>
       <li class="menu" id="link3">Rocky 9</li>
       <li class="menu" id="link4">Python</li>
-      <li class="menu" id="link5">チートシート</li>
+      <li class="menu" id="link5">リンク集</li>
     </ul>
     </nav>
-    <h1><a href="https://nachashin.github.io/homepage">便利情報</a></h1>
+    <h1><a href="https://nachashin.github.io/homepage">チートシート</a></h1>
   </header>
 
   <main>
 
-      <!-- area1 -->
-      <section id="area1">
+    <!-- area1 -->
+    <section id="area1">
       <header>
         <h2>開発環境</h2>
       </header>
@@ -96,8 +89,8 @@ $ ssh-keygen</pre></li>
     </section>
 
 
-      <!-- area2 -->
-      <section id="area2">
+    <!-- area2 -->
+    <section id="area2">
       <header>
         <h2>Web Page Sample</h2>
       </header>
@@ -137,28 +130,37 @@ $ ssh-keygen</pre></li>
       </aside>
     </section>
 
-      
-      <!-- area3 -->
-      <section id="area3">
+
+    <!-- area3 -->
+    <section id="area3">
       <header>
         <h2>Rocky 9セットアップ手順</h2>
       </header>
-        <aside>
-          <pre># dnf -y upgrade --refresh
-# dnf -y install epel-release
-# dnf config-manager --set-enabled crb
-# dnf -y groupinstall base development
-# dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-9.noarch.rpm
-# dnf -y install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-9.rpm</pre>
-        </aside>
-<!--
+
       <aside>
         <h3>リポジトリ設定</h3>
         <ul>
           <li>自動的にpull</li>
         </ul>
       </aside>
-//-->
+      <aside>
+        <h3>1.Windows上</h3>
+        <ol>
+          <li><a href="https://gitforwindows.org/" target="_blank">Git for Windowsインストール</a><br>→上記ページのDownload</li>
+        </ol>
+      </aside>
+      <aside>
+        <h3>1.Windows上</h3>
+        <ol>
+          <li><a href="https://gitforwindows.org/" target="_blank">Git for Windowsインストール</a><br>→上記ページのDownload</li>
+        </ol>
+      </aside>
+      <aside>
+        <h3>1.Windows上</h3>
+        <ol>
+          <li><a href="https://gitforwindows.org/" target="_blank">Git for Windowsインストール</a><br>→上記ページのDownload</li>
+        </ol>
+      </aside>
     </section>
 
 
@@ -234,7 +236,7 @@ n = [ n for n in nums <span style="color:red;">if n > 50</span> ]</pre><br>〇�
     <!-- area5 -->
     <section id="area5">
       <header>
-        <h2>チートシート</h2>
+        <h2>リンク集</h2>
       </header>
 
       <aside>
@@ -320,4 +322,3 @@ $(function() {
   </script>
 </body>
 </html>
-
