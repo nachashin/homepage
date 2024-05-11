@@ -17,6 +17,10 @@
       ul.sublist > li {padding-top:0;padding-bottom:0;}
       pre {margin:0;padding:0;background-color:#ECECEC;font-family:"Lucida Sans Unicode", Arial;}
     </style>
+    <script>
+        const fonts = ["Reggae One", "Zen Maru Gothic", "Kaisei Opti"];
+        const cur_font = fonts[1];
+    </script>
 </head>
 
 <body>
@@ -277,6 +281,14 @@ $(function() {
   $('section').hide();
   $('#link1').addClass("menu_selected");
   $('#area1').show();
+
+  $('h1').css({font-family:cur_font});
+  $('h2').css({font-family:cur_font});
+  $('h3').css({font-family:cur_font});
+  $('h4').css({font-family:cur_font});
+  $('h5').css({font-family:cur_font});
+  $('h6').css({font-family:cur_font});
+  $('.menu').css({font-family:cur_font});
 
   $('.menu').on('click', function() {
     tgt = '#area' + $(this).attr('id').replace('link','');
