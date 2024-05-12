@@ -285,6 +285,7 @@ $(function() {
   $('#link1').addClass("menu_selected");
   $('#area1').show();
 
+  $('li').css({"font-family":li_font});
   $('h1').css({"font-family":title_font});
   $('h2').css({"font-family":title_font});
   $('h3').css({"font-family":title_font});
@@ -292,7 +293,6 @@ $(function() {
   $('h5').css({"font-family":title_font});
   $('h6').css({"font-family":title_font});
   $('.menu').css({"font-family":title_font});
-  $('li').css({"font-family":li_font});
 
   $('.menu').on('click', function() {
     tgt = '#area' + $(this).attr('id').replace('link','');
