@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>bootstrap with jQuery Sample</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="custom/css/starter-template.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="bootstrap_with_jquery.html">bootstrap with jQuery Sample</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">link1</a></li>
+            <li><a href="#">link2</a></li>
+            <li><a href="#">link3</a></li>
+            <li><a href="#">link4</a></li>
+            <li><a href="#">link5</a></li>
+            <li><a href="#">link6</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>bootstrap with jQuery Sample</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2">
+          <div class="btn-group">
+            <button class="btn btn-dark btn-lg" type="button" id="menu1_btn">くじ</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="btn-group">
+            <button class="btn btn-primary btn-lg" type="button" id="menu2_btn">大きく</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="btn-group">
+            <button class="btn btn-info btn-lg" type="button" id="menu3_btn">色変更</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="btn-group">
+            <button class="btn btn-success btn-lg" type="button" id="menu4_btn">Toggle</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="btn-group">
+            <button class="btn btn-danger btn-lg" type="button" id="menu5_btn">移動</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="btn-group">
+            <button class="btn btn-warning btn-lg" type="button" id="menu6_btn">Hello</button>
+          </div>
+        </div>
+      </div>
+
+      <hr/>
+      <div class="row">
+        <div class="col-md-12" style="height:200px;">
+          <div style="font-size:200%;">おみくじ結果　大きさ：<span id="size_result"></span>　色：<span id="col_result"></span></div>
+          <div id="print_area"></div>
+        </div>
+      </div>
+
+      <footer><p style="text-align:center;margin-top:10em;">bootstrap with jQuery Sample</p></footer>
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $(function() {
+      $('#menu1_btn').on('click', function() {
+        kuji = ['大吉', '吉', '中吉', '小吉', '凶', '大凶'];
+        kekka = Math.floor(Math.random()*6);
+        $('#print_area').text(kuji[kekka]);
+      });
+      $('#menu2_btn').on('click', function() {
+        size = Math.floor(Math.random()*60+9)*10;
+        $('#print_area').css({'font-size':size+'%'});
+        $('#size_result').text(size+'%');
+      });
+      $('#menu3_btn').on('click', function() {
+        col_ary = new Uint32Array(10);
+        window.crypto.getRandomValues(col_ary);
+        col_str = '#';
+        for (var i = 0; i < 3; i++)
+          col_str += ('00' + (col_ary[i]%256).toString(16)).slice(-2);
+        $('#print_area').css({'color':col_str});
+        $('#col_result').text(col_str);
+      });
+      $('#menu4_btn').on('click', function() {
+        $('#print_area').fadeToggle("slow","linear");
+      });
+      $('#menu5_btn').on('click', function() {
+        dis_x = Math.floor(Math.random()*500);
+        dis_y = Math.floor(Math.random()*100);
+        $('#print_area').animate({"marginLeft":dis_x+"px"}).animate({"marginTop":dis_y+"px"}).animate({"marginLeft":"0px"}).animate({"marginTop":"0px"});
+      });
+      $('#menu6_btn').on('click', function() {
+        num = Math.floor(Math.random()*10+5);
+        for (var i = 0; i < 3; i++) {
+          var x = Math.floor(Math.random()*100);
+          var y = Math.floor(Math.random()*100);
+          $('#print_area').append('<div style="top:'+y+'px;left:'+x+'px;">Hello</div>');
+        }
+      });
+    });
+    </script>
+  </body>
+</html>
