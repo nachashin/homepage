@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>YAMAHAルータコマンドリファレンス(RTX1000)</title>
+
+    <!-- Bootstrap core CSS -->
+    <!--
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    //-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <!--
+    <link href="custom/css/starter-template.css" rel="stylesheet">
+    //-->
+    <style type="text/css">
+    html {overflow-y: scroll;}
+    body {padding-top: 50px;}
+    .starter-template {padding: 40px 15px;text-align: center;}
+    .block-top {margin-top: 2em;}
+    dt,dd {font-size: 120%;}
+    #under1 > dt {font-size:90%;}
+    #under1 > dd {font-size:90%;}
+    dt {margin-left: 1em; margin-top: 1em;}
+    dd {margin-left: 2em;}
+    h4 {font-weight:bold;color:#000066;background-color:#E8E8FF;padding:0.5em;}
+    .em0, .em0b {color:#666666;}
+    .em1, .em1b {color:#FF8000;}
+    .em2, .em2b {color:#3A62B4;}
+    .em3, .em3b {color:#009900;}
+    .em4, .em4b {color:#FFCC33;}
+    .em0b {background-color:#CCCCCC;}
+    .em1b {background-color:#FFF0F0;}
+    .em2b {background-color:#F0F0FF;}
+    .em3b {background-color:#F0FFF0;}
+    .em4b {background-color:#FFF0CC;}
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">delta.tsubata.itrev.info</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="lk" id="link1"><a href="javascript:void(0);">基本</a></li>
+            <li class="lk" id="link2"><a href="javascript:void(0);">全般／クライアント</a></li>
+            <li class="lk" id="link3"><a href="javascript:void(0);">サービス関連</a></li>
+            <li class="lk" id="link4"><a href="javascript:void(0);">IPSec関連</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>YAMAHAルータコマンドリファレンス(RTX1000)</h1>
+      </div>
+
+      <ul class="nav nav-tabs">
+        <li class="lk" id="link_tab1"><a href="#tab1" data-toggle="tab">基本</a><li>
+        <li class="lk" id="link_tab2"><a href="#tab2" data-toggle="tab">全般／クライアント</a><li>
+        <li class="lk" id="link_tab3"><a href="#tab3" data-toggle="tab">サービス関連</a><li>
+        <li class="lk" id="link_tab4"><a href="#tab4" data-toggle="tab">IPSec関連</a><li>
+      </ul>
+      <div id="TabContent" class="tab-content">
+
+        <!-- 基本 -->
+        <div class="tab-pane fade in" id="tab1">
+          <div class="block-top"><dl>
+            <dt>基本的操作方法</dt><dd>コンソールケーブルでPCとつなぎ、TeraTermなどのターミナルソフトで操作する</dd>
+            <dt>応用的操作方法</dt><dd>ルータ／スイッチでリモートログインを許可し、TeraTermなどのターミナルソフトでネットワーク経由で接続して操作する<br>※RTX1000は機能が少ないルータなのでリモートログインはTelnetのみ使用可能だが、それ以外のほとんどのルータはSSHでの接続も可能</dd>
+            <dt>初期状態</dt><dd><ul>
+              <li>一般モード、管理者モードともにパスワードなし</li>
+              <li>本体背後のINITボタンを押しながら電源を入れてしばらくすると初期化される（パスワードを忘れた場合など）</li>
+              </ul></dd>
+            <dt>コマンド入力のコツ</dt><dd><ul>
+              <li>操作はすべてコマンド入力（場合によりオプションやパラメータも追加）により行う</li>
+              <li>コマンドやオプション文字列を途中まで入力して<strong class="text-danger">Tabキー</strong>を押すと補完する（入力部分のみでそのコマンドやオプションが特定できる場合）　例：administrator → ad(Tabキー)</li>
+              <li>コマンド入力中に <strong>?</strong> キーを押すと、そのうしろに入力可能なオプションが表示される</li>
+            </ul></dd>
+            <dt>動作モード</dt><dd>一般モードと管理者モードがある
+            <dl id="under1"><dt>一般モード</dt><dd>確認用（show config等） → <strong>administrator</strong> で管理者モードへ移行（パスワード入力が必要）<br>※一般モードで実行可能なコマンドは管理者モードでも実行可能</dd>
+            <dt>管理者モード</dt><dd>各種管理ができる</dd></dl></dd>
+            <dt>戻る操作</dt><dd>exit で一つ前のモードに戻る</dd>
+            <dt>no</dt><dd>管理者モードで no (コマンド) を実行すると設定が削除される<br>例：no ip lan1 address 192.168.0.1/24</dd>
+            <dt></dt><dd></dd>
+          </dl></div>
+        </div>
+
+        <!-- 全般／クライアント -->
+        <div class="tab-pane fade in" id="tab2">
+          <div class="block-top">
+          <h4>全般</h4>
+          <dl>
+            <dt>show command</dt><dd>使用可能なコマンド一覧を表示</dd>
+            <dt>show config</dt><dd>現在のすべての設定を確認する<br>※ここで表示される設定項目は、そのまま設定コマンドとして実行できるものがほとんど</dd>
+            <dt>show ip route</dt><dd>現在のルーティングテーブル情報を確認する</dd>
+            <dt>console character ascii/sjis</dt><dd>文字コードをASCII/シフトJISに設定する<br>※日本語が文字化けするような場合は ascii にするとよい</dd>
+            <dt>login password</dt><dd>一般モードログイン用パスワード設定</dd>
+            <dt>administrator password</dt><dd>管理者モード用パスワード設定</dd>
+            <dt>save</dt><dd>設定内容を永続的に保存する</dd>
+            <dt>restart</dt><dd>再起動する</dd>
+            <dt>cold start</dt><dd>設定を初期化して再起動する</dd>
+            <dt>no (コマンド)</dt><dd>(コマンド)で設定した内容を削除する</dd>
+            <dt></dt><dd></dd>
+          </dl>
+
+          <h4>IPアドレス関連コマンド</h4>
+          <dl>
+            <dt>ip lanX address XXX.XXX.XXX.XXX/MASK</dt><dd>lanXに対してIPアドレスXXX.XXX.XXX.XXX、サブネットマスクMASKを設定する<br>例：ip lan1 address 192.168.0.1/24</dd>
+            <dt>ip routing on</dt><dd>ルーティング機能を有効にする</dd>
+            <dt>ip route default gateway XXX.XXX.XXX.XXX</dt><dd>デフォルトゲートウェイとしてXXX.XXX.XXX.XXXを設定する<br>※ip route default gateway 11.22.33.44</dd>
+            <dt>dns server XXX.XXX.XXX.XXX</dt><dd>使用するDNSサーバのIPアドレスを設定する<br>例：dns server 192.168.0.100</dd>
+          </dl>
+
+          </div>
+        </div>
+
+        <!-- サービス関連 -->
+        <div class="tab-pane fade in" id="tab3">
+          <div class="block-top">
+          <h4>サービス関連</h4>
+          <dl>
+            <dt>rip use on/off</dt><dd>RIP機能を有効化／無効化する</dd>
+            <dt>telnetd service on/off</dt><dd>Telnetサーバー機能を有効化／無効化する</dd>
+            <dt>dhcp server service/relay</dt><dd>DHCPサーバ/DHCPリレーエージェントを有効化する</dd>
+            <dt>dhcp scope</dt><dd>DHCPサーバのスコープ設定</dd>
+            <dt>httpd service on/off</dt><dd>HTTPサーバー機能（Webでの管理機能）の有効化／無効化</dd>
+            <dt>dns domain DOMAINNAME</dt><dd>ドメイン名の設定（名前解決失敗時に自動的に補完する）</dd>
+            <dt>ip host FQDN IP<br>ex. ip host www.abc.com 1.2.3.4</dt><dd>静的DNSレコードの登録（ホスト←→IPの両方を登録する）</dd>
+            <dt>dns static type name value<br>ex. dns static a www.abc.com 1.2.3.4<br>ex. dns static ptr 1.2.3.4 www.abc.com<br>ex. dns static cname www.abc.com www.realurl.com<br>ex. dns static mx abc.com mx.abc.com<br>ex. dns static ns abc.com ns1.abc.com</dt><dd>typeパラメータ（a,aaa,ptr,mx,ns,cname）にしたがって name（FQDN等）と value（IPaddressやFQDN）を設定</dd>
+            <dt></dt><dd></dd>
+          </dl>
+          </div>
+        </div>
+
+        <!-- IPSec関連 -->
+        <div class="tab-pane fade in" id="tab4">
+          <div class="block-top">
+          <h4>IPSec関連</h4>
+          <div><img src="img/RTX1000_IPSec01b.png" alt="RTX1000_IPSec"/></div>
+          <dl>
+            <dt>両ルータが固定IPアドレスの場合：<span class="em2">メインモード</span></dt><dd>メインモードはアグレッシブモードよりセキュリティが高い<ul><li>拠点Ａのルータ設定<pre>tunnel select 1
+ ipsec tunnel 101
+  ipsec sa policy 101 1 esp 3des-cbc sha-hmac
+  ipsec ike keepalive use 1 on
+  ipsec ike local address 1 192.168.11.1
+  ipsec ike pfs 1 on
+  ipsec ike pre-shared-key 1 text PASSWORD
+  ipsec ike remote address 1 5.6.7.8
+ tunnel enable 1
+ip route 192.168.12.0/24 gateway tunnel 1
+ip lan3 nat descriptor 1
+nat descriptor type 1 masquerade
+nat descriptor address outer 1 primary
+nat descriptor masquerade static 1 1 192.168.11.1 esp
+nat descriptor masquerade static 1 2 192.168.11.1 udp 500
+ipsec auto refresh on</pre><ol>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ol></li>
+<li>拠点Ｂのルータ設定<pre>tunnel select 1
+ ipsec tunnel 101
+  ipsec sa policy 101 1 esp 3des-cbc sha-hmac
+  ipsec ike keepalive use 1 on
+  ipsec ike local address 1 192.168.12.1
+  ipsec ike pfs 1 on
+  ipsec ike pre-shared-key 1 text PASSWORD
+  ipsec ike remote address 1 1.2.3.4
+ tunnel enable 1
+ip route 192.168.11.0/24 gateway tunnel 1
+ip lan3 nat descriptor 1
+nat descriptor type 1 masquerade
+nat descriptor address outer 1 primary
+nat descriptor masquerade static 1 1 192.168.12.1 esp
+nat descriptor masquerade static 1 2 192.168.12.1 udp 500
+ipsec auto refresh on</pre><ol>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+</ol></li></ul></dd>
+            <dt>片方（両方）が動的IPアドレスの場合：<span class="em2">アグレッシブモード</span></dt><dd>片方がクライアントなどの場合はこちらで設定する<br>メインモードよりセキュリティ強度が低いのでメインモードが使える場合はメインモードを使うべき<ul><li>拠点Ａのルータ設定<pre>tunnel select 1
+ipsec tunnel 101
+ipsec sa policy 101 1 esp 3des-cbc sha-hmac
+ipsec ike local address 1 192.168.3.1
+ipsec ike pfs 1 on
+ipsec ike pre-shared-key 1 text PASSWORD
+ipsec ike remote address 1 any
+ipsec ike remote name 1 IPSEC_NAME
+tunnel enable 1
+ipsec auto refresh on
+ip route 192.168.4.0/24 gateway tunnel 1
+nat descriptor type 1 masquerade
+nat descriptor masquerade static 1 1 192.168.3.1 udp 500
+nat descriptor masquerade static 1 1 192.168.3.1 esp</pre><ol>
+              <li>tunnel select 1<br># 使用するtunnelインターフェイス番号を指定</li>
+              <li>ipsec tunnel 101<br># tunnelインターフェイスで利用するIPSec番号の設定</li>
+              <li>ipsec sa policy 101 1 esp 3des-cbc sha-hmac<br># IPSecの暗号化アルゴリズム（3des-cbc sha-hmac）の選択</li>
+              <li>ipsec ike local address 1 192.168.3.1<br>#ルータの内部IPアドレスの指定</li>
+              <li>ipsec ike pfs 1 on<br># IKEフェーズ２でPFSを使用するための定義</li>
+              <li>ipsec ike pre-shared-key 1 text PASSWORD<br># 事前共有鍵（PASSWORD）の設定</li>
+              <li>ipsec ike remote address 1 any<br>対抗するルータの指定として任意のIPアドレスを許可</li>
+              <li>ipsec ike remote name 1 IPSEC_NAME<br>対抗するルータの識別名（IPSE_NAME）を指定</li>
+              <li>tunnel enable 1<br>設定したトンネリングインターフェイスの有効化</li>
+              <li>ipsec auto refresh on<br>IPSec SAの自動更新を有効化</li>
+              <li>ip route 192.168.4.0/24 gateway tunnel 1<br>対抗の内部ネットワークへのルーティング設定を追加</li>
+              <li>nat descriptor type 1 masquerade<br>nat descriptor masquerade static 1 1 192.168.3.1 udp 500<br>nat descriptor masquerade static 1 1 192.168.3.1 esp<br>IPSecで使用する 500/udp, esp をNAT設定</li>
+</ol></li>
+<li>拠点Ｂのルータ設定<pre>tunnel select 1
+ipsec tunnel 101
+ipsec sa policy 101 1 esp 3des-cbc sha-hmac
+ipsec ike local address 1 192.168.4.1
+ipsec ike pfs 1 on
+ipsec ike pre-shared-key 1 text PASSWORD
+ipsec ike remote name 1 IPSEC_NAME
+ipsec ike remote address 1 111.222.11.22
+tunnel enable 1
+ipsec auto refresh on
+ip route 192.168.3.0/24 gateway tunnel 1
+nat descriptor type 1 masquerade
+nat descriptor masquerade static 1 1 192.168.4.1 udp 500
+nat descriptor masquerade static 1 1 192.168.4.1 esp</pre><ol>
+              <li>tunnel select 1<br># 使用するtunnelインターフェイス番号を指定</li>
+              <li>ipsec tunnel 101<br># tunnelインターフェイスで利用するIPSec番号の設定</li>
+              <li>ipsec sa policy 101 1 esp 3des-cbc sha-hmac<br># IPSecの暗号化アルゴリズム（3des-cbc sha-hmac）の選択</li>
+              <li>ipsec ike local address 1 192.168.4.1<br>#ルータの内部IPアドレスの指定</li>
+              <li>ipsec ike pfs 1 on<br># IKEフェーズ２でPFSを使用するための定義</li>
+              <li>ipsec ike pre-shared-key 1 text PASSWORD<br># 事前共有鍵（PASSWORD）の設定</li>
+              <li>ipsec ike remote name 1 IPSEC_NAME<br>対抗するルータの識別名（IPSE_NAME）を指定</li>
+              <li>ipsec ike remote address 1 111.222.11.22<br>対抗のルータのグローバルIPアドレスを指定</li>
+              <li>tunnel enable 1</li>
+              <li>ipsec auto refresh on<br>IPSec SAの自動更新を有効化</li>
+              <li>ip route 192.168.3.0/24 gateway tunnel 1<br>対抗の内部ネットワークへのルーティング設定を追加</li>
+              <li>nat descriptor type 1 masquerade<br>nat descriptor masquerade static 1 1 192.168.4.1 udp 500<br>nat descriptor masquerade static 1 1 192.168.4.1 esp<br>IPSecで使用する 500/udp, esp をNAT設定</li>
+</ol></li></ul></dd>
+          </dl>
+
+          <h4>サービス関連</h4>
+          <dl>
+            <dt></dt><dd></dd>
+          </dl>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+//-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    $(function() {
+      $('#link1').addClass('active');
+      $('#link_tab1').addClass('active');
+      $('#tab1').addClass('active');
+
+      $('.lk').on('click', function() {
+        id = $(this).attr('id').replace('link_tab','').replace('link','');
+
+        for (i = 1; i <= 4; i++)
+            $('#link'+i).removeClass('active');    
+        $('#link'+id).addClass('active');
+
+        for (i = 1; i <= 4; i++)
+            $('#link_tab'+i).removeClass('active');    
+        $('#link_tab'+id).addClass('active');
+
+        for (i = 1; i <= 4; i++)
+            $('#tab'+i).removeClass('active');    
+        $('#tab'+id).addClass('active');
+
+        return false;
+      });
+    })
+    </script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
