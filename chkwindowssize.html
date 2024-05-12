@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="stylesheet" href="https://andybrewer.github.io/mvp/mvp.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="description" content="Check Window Size">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Window Size</title>
+    <style>
+    span {font-size:200%;}
+    </style>
+</head>
+
+<body>
+  <main>
+    <section>
+      <aside>
+        <h2>モニタの解像度</h2>
+        <p><span id="a1"></span><br><span id="a2"></span></p>
+      </aside>
+      <aside>
+        <h2>モニタの利用可能領域</h2>
+        <p><span id="b1"></span><br><span id="b2"></span></p>
+      </aside>
+      <aside>
+        <h2>ブラウザウインドウの表示領域</h2>
+        <p><span id="c1"></span><br><span id="c2"></span></p>
+      </aside>
+      <aside>
+        <h2>ウィンドウ外観</h2>
+        <p><span id="d1"></span><br><span id="d2"></span></p>
+      </aside>
+      <aside>
+        <h2>ドキュメント全体</h2>
+        <p><span id="e1"></span><br><span id="e2"></span></p>
+      </aside>
+      <aside>
+        <h2>ドキュメントの表示領域</h2>
+        <p><span id="f1"></span><br><span id="f2"></span></p>
+      </aside>
+      <aside>
+        <h2>ドキュメントの表示領域</h2>
+        <p><span id="g1"></span><br><span id="g2"></span></p>
+      </aside>
+      <aside>
+        <h2>ドキュメントの領域全体</h2>
+        <p><span id="h1"></span><br><span id="h2"></span></p>
+      </aside>
+    </section>
+  </main>
+  <script>
+  $(function() {
+    $('#a1').text('X: '+window.screen.width);
+    $('#a2').text('Y: '+window.screen.height);
+
+    $('#b1').text('X: '+window.screen.availWidth);
+    $('#b2').text('Y: '+window.screen.availHeight);
+
+    $('#c1').text('X: '+window.innerWidth);
+    $('#c2').text('Y: '+window.innerHeight);
+
+    $('#d1').text('X: '+window.outerWidth);
+    $('#d2').text('Y: '+window.outerHeight);
+
+    $('#e1').text('X: '+document.body.clientWidth);
+    $('#e2').text('Y: '+document.body.clientHeight);
+
+    $('#f1').text('X: '+document.documentElement.clientWidth);
+    $('#f2').text('Y: '+document.documentElement.clientHeight);
+
+    $('#g1').text('X: '+document.documentElement.offsetWidth);
+    $('#g2').text('Y: '+document.documentElement.offsetHeight);
+
+    $('#h1').text('X: '+document.documentElement.scrollWidth);
+    $('#h2').text('Y: '+document.documentElement.scrollHeight);
+  });
+  </script>
+</body>
+</html>
