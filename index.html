@@ -21,7 +21,8 @@
     </style>
     <script>
         const fonts = ["Reggae One", "Zen Maru Gothic", "Kaisei Opti", "Sawarabi Mincho", "Noto Sans JP"];
-        const cur_font = fonts[2];
+        const title_font = fonts[2];
+        const li_font = fonts[1];
     </script>
 </head>
 
@@ -284,13 +285,14 @@ $(function() {
   $('#link1').addClass("menu_selected");
   $('#area1').show();
 
-  $('h1').css({"font-family":cur_font});
-  $('h2').css({"font-family":cur_font});
-  $('h3').css({"font-family":cur_font});
-  $('h4').css({"font-family":cur_font});
-  $('h5').css({"font-family":cur_font});
-  $('h6').css({"font-family":cur_font});
-  $('.menu').css({"font-family":cur_font});
+  $('h1').css({"font-family":title_font});
+  $('h2').css({"font-family":title_font});
+  $('h3').css({"font-family":title_font});
+  $('h4').css({"font-family":title_font});
+  $('h5').css({"font-family":title_font});
+  $('h6').css({"font-family":title_font});
+  $('.menu').css({"font-family":title_font});
+  $('li').css({"font-family":li_font});
 
   $('.menu').on('click', function() {
     tgt = '#area' + $(this).attr('id').replace('link','');
