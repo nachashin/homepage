@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Ciscoルータ／スイッチコマンドリファレンス</title>
+
+    <!-- Bootstrap core CSS -->
+    <!--
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    //-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <!--
+    <link href="custom/css/starter-template.css" rel="stylesheet">
+    //-->
+    <style type="text/css">
+    html {overflow-y: scroll;}
+    body {padding-top: 50px;}
+    .starter-template {padding: 40px 15px;text-align: center;}
+    .block-top {margin-top: 2em;}
+    dt,dd {font-size: 120%;}
+    dt {margin-left: 1em; margin-top: 1em;}
+    dd {margin-left: 2em;}
+    h4 {font-weight:bold;color:#000066;background-color:#E8E8FF;}
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">delta.tsubata.itrev.info</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="lk" id="link1"><a href="javascript:void(0);">基本</a></li>
+            <li class="lk" id="link2"><a href="javascript:void(0);">特権</a></li>
+            <li class="lk" id="link3"><a href="javascript:void(0);">グローバル</a></li>
+            <li class="lk" id="link4"><a href="javascript:void(0);">インター</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Ciscoルータ／スイッチコマンドリファレンス</h1>
+      </div>
+
+      <ul class="nav nav-tabs">
+        <li class="lk" id="link_tab1"><a href="#tab1" data-toggle="tab">基本</a><li>
+        <li class="lk" id="link_tab2"><a href="#tab2" data-toggle="tab">特権</a><li>
+        <li class="lk" id="link_tab3"><a href="#tab3" data-toggle="tab">グローバル</a><li>
+        <li class="lk" id="link_tab4"><a href="#tab4" data-toggle="tab">インター</a><li>
+      </ul>
+      <div id="TabContent" class="tab-content">
+
+        <!-- 基本 -->
+        <div class="tab-pane fade in" id="tab1">
+          <div class="block-top"><dl>
+            <dt>基本的操作方法</dt><dd>コンソールケーブルでPCとつなぎ、TeraTermなどのターミナルソフトで操作する</dd>
+            <dt>応用的操作方法</dt><dd>ルータ／スイッチでリモートログイン（Telnetやssh）を許可し、TeraTermなどのターミナルソフトでネットワーク経由で接続して操作する</dd>
+            <dt>コマンド入力のコツ</dt><dd><ul>
+              <li>操作はすべてコマンド入力（場合によりオプションやパラメータも追加）により行う</li>
+              <li>多くのコマンドやオプションは省略形でも入力できる　例：configure terminal → conf t</li>
+              <li>コマンドやオプション文字列を途中まで入力して<strong class="text-danger">Tabキー</strong>を押すと補完する（入力部分のみでそのコマンドやオプションが特定できる場合）</li>
+              <li>コマンド入力中に <strong>?</strong> キーを押すと、そのうしろに入力可能なオプションが表示される</li>
+            </ul></dd>
+            <dt>主な設定モード</dt><dd>ユーザーモード、特権モード、グローバルコンフィギュレーションモード、インターフェイスコンフィギュレーションモードなどがある</dd>
+            <dt>ユーザーモード</dt><dd>ほとんど何も操作できない → <strong>enable</strong> または <strong>en</strong> で特権モードへ移行</dd>
+            <dt><strong class="text-info">特権</strong>モード</dt><dd>各種設定の確認のみできる → <strong>configure terminal</strong> または <strong>conf t</strong> でグローバルコンフィギュレーションモードへ移行</dd>
+            <dt><strong class="text-info">グローバル</strong>コンフィギュレーションモード</dt><dd>全体的な設定が可能 → <strong>interface xx</strong> または <strong>int xx</strong> でインターフェイスコンフィギュレーションモードに移行</dd>
+            <dt><strong class="text-info">インター</strong>フェイスコンフィギュレーションモード</dt><dd>選択されたインターフェイスに対する設定が可能</dd>
+            <dt>戻る操作</dt><dd><ul>
+              <li><strong>exit</strong> または <strong>exi</strong> で一つ前のモードに戻る</li>
+              <li><strong>end</strong> で特権モードに戻る</li>
+              <li><strong>disable</strong> または <strong>disa</strong> で特権モードからユーザーモードに戻る</li>
+            </ul></dd>
+            <dt>no</dt><dd>各種コンフィギュレーションモードで no (コマンド) を実行すると設定が削除される</dd>
+            <dt></dt><dd></dd>
+          </dl></div>
+        </div>
+
+        <!-- 特権モード -->
+        <div class="tab-pane fade in" id="tab2">
+          <div class="block-top">
+          <h4>特権モードで使用する主なコマンド</h4>
+          <dl>
+            <dt>show running-config ( sh run )</dt><dd>現在のすべての設定を確認する</dd>
+            <dt>show ip interface brief ( sh ip int brie )</dt><dd>すべてのインターフェイスのステータスを簡易表示する</dd>
+            <dt>show ip route ( sh ip ro )</dt><dd>ルーティングテーブルを確認する</dd>
+            <dt>copy running-config startup-config ( copy run star )</dt><dd>設定した内容を保存する</dd>
+            <dt>erase startup-config ( era star )</dt><dd>初期化（＝起動時の設定を削除する）</dd>
+            <dt>show vlan ( sh vl )</dt><dd>作成したVLANを表示する（Cisco Switch）</dd>
+            <dt>show vlan-switch </dt><dd>作成したVLANを表示する（Cisco Router）</dd>
+            <dt>delete vlan.dat</dt><dd>VLANデータベース削除（Cisco Switch）</dd>
+            <dt>reload</dt><dd>再起動</dd>
+            <dt></dt><dd></dd>
+          </dl></div>
+        </div>
+
+        <!-- グローバルコンフィギュレーションモード -->
+        <div class="tab-pane fade in" id="tab3">
+          <div class="block-top">
+          <h4>グローバルコンフィギュレーションモードで使用する主なコマンド</h4>
+          <dl>
+            <dt>interface fastethernet 0 ( int fa 0 )</dt><dd>FastEthernet 0のインターフェイスコンフィギュレーションモードに移行する</dd>
+            <dt>interface gigabitEthernet 1/0/1 ( int gi 1/0/1 )</dt><dd>GigabitEthernet 1/0/1のインターフェイスコンフィギュレーションモードに移行する<br>1/0/1　１番目の値：スタックメンバー番号（1台の場合は1）　２番目の値：モジュール番号（Catalyst 3750では常に0）　３番目の値：ポート番号（1から最大ポート数まで）</dd>
+            <dt>interface range gigabitEthernet 1/0/1 - 12</dt><dd>GigabitEthernet の 1/0/1 ～ 1/0/12 までまとめて指定する</dd>
+            <dt>interface vlan 1</dt><dd>VLAN1のインターフェイスコンフィギュレーションモードに移行する</dd>
+            <dt>ip routing</dt><dd>ルーティングを有効化する　※これを実行しないとルータとして機能しない</dd>
+            <dt>ip route [NetAddr] [SubnetMask] [NextHop]</dt><dd>ルーティングを設定する</dd>
+            <dt>hostname NAME</dt><dd>対象機器のホスト名をNAMEにする</dd>
+            <dt>enable password PASSWORD</dt><dd>特権パスワードをPASSWORDにする</dd>
+            <dt>line vty 0 4</dt><dd>ラインコンフィギュレーションモードに入る<br>→次の画面で<br>password VTYPASSWORD<br>login<br>transport input telnet<br>を実行することでVTYパスワードとして VTYPASSWORD が設定される</dd>
+            <dt>vlan XX</dt><dd>VLAN XX(XXは数字)が作成される</dd>
+            <dt>no vlan XX</dt><dd>VLAN XXを削除する</dd>
+            <dt></dt><dd></dd>
+          </dl></div>
+        </div>
+
+        <!-- インターフェイスコンフィギュレーションモード -->
+        <div class="tab-pane fade in" id="tab4">
+          <div class="block-top">
+          <h4>インターフェイスコンフィギュレーションモードで使用する主なコマンド</h4>
+          <dl>
+            <dt>ip address [IP] [SubnetMask]</dt><dd>対象のインターフェイスにIPアドレスを設定する</dd>
+            <dt>no shutdown</dt><dd>対象のインターフェイスを有効化する　※Ciscoのルータのインターフェイスは起動時は無効になっているため no shutdown が必要</dd>
+            <dt>switchport mode access</dt><dd>対象のインターフェイスをアクセスモードにする</dd>
+            <dt>switchport access vlan XX</dt><dd>対象のインターフェイスをVLAN XXにマッピングする</dd>
+            <dt></dt><dd></dd>
+          </dl></div>
+        </div>
+
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+//-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    $(function() {
+      $('#link1').addClass('active');
+      $('#link_tab1').addClass('active');
+      $('#tab1').addClass('active');
+
+      $('.lk').on('click', function() {
+        id = $(this).attr('id').replace('link_tab','').replace('link','');
+
+        for (i = 1; i <= 4; i++)
+            $('#link'+i).removeClass('active');    
+        $('#link'+id).addClass('active');
+
+        for (i = 1; i <= 4; i++)
+            $('#link_tab'+i).removeClass('active');    
+        $('#link_tab'+id).addClass('active');
+
+        for (i = 1; i <= 4; i++)
+            $('#tab'+i).removeClass('active');    
+        $('#tab'+id).addClass('active');
+
+        return false;
+      });
+    })
+    </script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
