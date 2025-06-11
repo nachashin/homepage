@@ -1,0 +1,16 @@
+html {
+  overflow-y: scroll;
+}
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.block-top {margin-top: 2em;}
+dt,dd {font-size: 120%;}
+dt {margin-left: 1em; margin-top: 1em;}
+dd {margin-left: 2em;}
+
